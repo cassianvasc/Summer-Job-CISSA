@@ -1,0 +1,165 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    background-color: #1e2a38;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+header p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* =========================
+   MAIN (CENTRALIZA LOGIN)
+========================= */
+main {
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* =========================
+   SECTIONS (CARDS)
+========================= */
+section {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+section h2 {
+    margin-bottom: 12px;
+    color: #1e2a38;
+    font-size: 20px;
+}
+
+section p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* =========================
+   FORM
+========================= */
+form label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #1e2a38;
+}
+
+/* =========================
+   BOTÃO PRINCIPAL
+========================= */
+button {
+    width: 100%;
+    background-color: #1e2a38;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #16202b;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+    color: #1e2a38;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   MENSAGEM DE ERRO
+========================= */
+form p {
+    margin-bottom: 12px;
+}
+
+form p[style*="color"] {
+    background-color: #fdecea;
+    border-left: 4px solid #c0392b;
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+    color: #555;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    main {
+        margin: 30px auto;
+    }
+}

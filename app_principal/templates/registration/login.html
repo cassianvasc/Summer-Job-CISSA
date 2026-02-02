@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro – Canal de Denúncias</title>
+    <link rel="stylesheet" href="{% static 'app_principal/css/login.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Canal de Denúncias de Ameaças Digitais</h1>
+    <p>
+        Sistema seguro para registro, acesso e envio de denúncias
+        relacionadas a ameaças cibernéticas.
+    </p>
+</header>
+
+<main>
+
+    <section>
+        <h2>🔐 Registro / Acesso</h2>
+        <p>
+            Informe suas credenciais para acessar o sistema.
+            Caso ainda não possua cadastro, realize seu registro.
+        </p>
+    </section>
+
+    <section>
+        <h2>📌 Acesso ao Sistema</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="id_username">Usuário</label><br>
+            {{ form.username }}
+            <br><br>
+
+            <label for="id_password">Senha</label><br>
+            {{ form.password }}
+            <br><br>
+
+            {% if form.errors %}
+                <p style="color: #c0392b; font-size: 14px;">
+                    Usuário ou senha inválidos.
+                </p>
+            {% endif %}
+
+            <button type="submit">Entrar</button>
+        </form>
+        <br>
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 – Canal de Denúncias de Ameaças Digitais  
+        <br>
+        Em caso de risco imediato, procure as autoridades competentes.
+    </p>
+</footer>
+
+</body>
+</html>
