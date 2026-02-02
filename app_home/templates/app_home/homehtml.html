@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Canal de Denúncias – Ameaças Digitais</title>
+    <link rel="stylesheet" href="{% static 'app_home/css/homecss.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Canal de Denúncias de Ameaças Digitais</h1>
+    <p>
+        Utilize este canal para reportar ameaças, perseguição, golpes,
+        discurso de ódio ou qualquer forma de violência digital.
+    </p>
+</header>
+
+<main>
+
+    <section>
+        <h2>🔒 Privacidade e Segurança</h2>
+        <p>
+            Esta denúncia pode ser feita de forma <strong>anônima</strong>.
+            As informações fornecidas serão utilizadas apenas para fins
+            de análise e investigação.
+        </p>
+    </section>
+
+    <section>
+        <h2>📌 Informações da Denúncia</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="tipo">Tipo de ameaça</label><br>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecione</option>
+                <option value="ameaça">Ameaça direta</option>
+                <option value="assedio">Assédio</option>
+                <option value="golpe">Golpe / Fraude</option>
+                <option value="odio">Discurso de ódio</option>
+                <option value="outro">Outro</option>
+            </select>
+            <br><br>
+
+            <label for="descricao">Descrição detalhada</label><br>
+            <textarea id="descricao" name="descricao" rows="6" required></textarea>
+            <br><br>
+
+            <label for="evidencia">Links ou evidências (opcional)</label><br>
+            <textarea id="evidencia" name="evidencia" rows="4"
+                placeholder="Links, usuários, mensagens, hashes, etc."></textarea>
+            <br><br>
+
+            <label for="contato">Contato (opcional)</label><br>
+            <input type="email" id="contato" name="contato"
+                placeholder="email@exemplo.com">
+            <br><br>
+
+            <button type="submit">Enviar denúncia</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 – Canal de Denúncias de Ameaças Digitais  
+        <br>
+        Em caso de risco imediato, procure as autoridades competentes.
+    </p>
+</footer>
+
+</body>
+</html>
