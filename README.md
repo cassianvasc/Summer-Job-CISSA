@@ -68,23 +68,22 @@ CTI / MISP
 
 ## 🚀 Como executar o projeto localmente
 
-1. Clone o repositório:
-bash
+### 1. Clone o repositório:
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
-### Crie e ative um ambiente virtual:
+### 2. Crie e ative um ambiente virtual:
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 
-### Instale as dependências:
+### 3. Instale as dependências:
 pip install -r requirements.txt
 
-### Configure as variáveis de ambiente (.env):
+### 4. Configure as variáveis de ambiente (.env):
 DJANGO_SECRET_KEY=sua_secret_key_aqui
 
-### Execute o servidor:
+### 5. Execute o servidor:
 python manage.py runserver
 
-### Acesse:
+### 6. Acesse:
 http://127.0.0.1:8000/
