@@ -8,12 +8,22 @@
 </head>
 <body>
 
+<!-- TOAST / POPUP DE FEEDBACK -->
+{% if messages %}
+    <div id="toast-container">
+        {% for message in messages %}
+            <div class="toast sucesso">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 <header>
     <h1>Canal de Denúncias de Ameaças Digitais</h1>
     <p>
         Plataforma segura para registro, análise e tratamento de ameaças
-        cibernéticas, com foco em Cyber Threat Intelligence (CTI)
-        e integridade dos dados.
+        cibernéticas, com foco em Cyber Threat Intelligence e integridade dos dados.
     </p>
 
     <div class="usuario-logado">
@@ -33,15 +43,15 @@
         </p>
     </section>
 
-    <!-- AÇÃO PRINCIPAL -->
+    <!-- REGISTRAR DENÚNCIA -->
     <section>
         <h2>🚨 Registrar Denúncia</h2>
         <p>
             Caso tenha identificado uma ameaça digital, utilize o formulário
-            para registrar a ocorrência de forma estruturada e segura.
+            para registrar a ocorrência.
         </p>
 
-        <form action="/denuncia/" method="get">
+        <form action="{% url 'denuncia' %}" method="get">
             <button type="submit">Preencher denúncia de ameaça</button>
         </form>
     </section>
@@ -52,11 +62,11 @@
         <p>
             As informações registradas podem ser associadas a uma infraestrutura
             de blockchain permissionada, garantindo integridade, imutabilidade
-            e rastreabilidade dos registros ao longo do tempo.
+            e rastreabilidade dos registros.
         </p>
         <p>
             Isso assegura que os dados não sejam alterados após o registro,
-            fortalecendo a confiabilidade das informações compartilhadas.
+            fortalecendo a confiabilidade das informações.
         </p>
     </section>
 
@@ -64,9 +74,8 @@
     <section>
         <h2>🌐 Cyber Threat Intelligence (CTI)</h2>
         <p>
-            A plataforma apoia processos de Cyber Threat Intelligence,
-            permitindo a correlação, análise e compartilhamento de indicadores
-            de ameaças cibernéticas.
+            O sistema apoia processos de Cyber Threat Intelligence, permitindo
+            a correlação, análise e compartilhamento de indicadores de ameaça.
         </p>
         <p>
             Denúncias relevantes podem ser integradas a plataformas CTI,
@@ -80,7 +89,7 @@
         <p>
             A segurança da informação é um dos pilares desta aplicação.
             São adotadas boas práticas de autenticação, controle de acesso
-            e proteção contra ataques cibernéticos comuns.
+            e proteção contra ataques comuns.
         </p>
         <p>
             O objetivo é oferecer um ambiente confiável tanto para o denunciante
@@ -96,9 +105,9 @@
             desenvolvido pela equipe <strong>CyberTrust</strong>.
         </p>
         <p>
-            A iniciativa tem como objetivo produzir inteligência de ameaças
-            e aumentar a confiabilidade na comunicação entre entidades
-            em plataformas de compartilhamento de Cyber Threat Intelligence (CTI).
+            O projeto tem como objetivo produzir inteligência de ameaças e
+            aumentar a confiabilidade na comunicação entre entidades em
+            plataformas de compartilhamento de Cyber Threat Intelligence (CTI).
         </p>
     </section>
 
@@ -111,6 +120,14 @@
         Em caso de risco imediato, procure as autoridades competentes.
     </p>
 </footer>
+
+<!-- SCRIPT PARA REMOVER O POPUP -->
+<script>
+    setTimeout(() => {
+        const toasts = document.querySelectorAll('.toast');
+        toasts.forEach(toast => toast.remove());
+    }, 5000);
+</script>
 
 </body>
 </html>
