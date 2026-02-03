@@ -77,13 +77,11 @@ source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 
 ### 3. Instale as dependências:
-pip install -r requirements.txt
+pip install django
+pip install dotenv
 
-### 4. Configure as variáveis de ambiente (.env):
-DJANGO_SECRET_KEY=sua_secret_key_aqui
-
-### 5. Execute o servidor:
+### 4. Execute o servidor:
 python manage.py runserver
 
-### 6. Acesse:
+### 5. Acesse:
 http://127.0.0.1:8000/
