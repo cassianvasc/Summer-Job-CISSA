@@ -1,167 +1,153 @@
 /* =========================
-   RESET & BASE
+   RESET
 ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: "Segoe UI", Inter, Arial, sans-serif;
 }
 
+/* =========================
+   BODY
+========================= */
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #ecf0f1;
     min-height: 100vh;
+    background: radial-gradient(circle at top, #1a0033, #06000d 70%);
+    color: #e6dcff;
 }
 
 /* =========================
    HEADER
 ========================= */
 header {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    padding: 40px 20px;
+    background: linear-gradient(135deg, #2c0057, #0b0018);
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 60px 20px;
+    border-bottom: 1px solid rgba(178, 107, 255, 0.3);
+    position: relative;
 }
 
 header h1 {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: 12px;
-    letter-spacing: 0.5px;
+    color: #d7b3ff;
 }
 
 header p {
-    max-width: 820px;
+    max-width: 900px;
     margin: 0 auto;
     font-size: 15px;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 /* =========================
-   MAIN
+   USUÁRIO LOGADO
+========================= */
+.usuario-logado {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 13px;
+    color: #cfa8ff;
+}
+
+.usuario-logado strong {
+    color: #ffffff;
+}
+
+/* =========================
+   MAIN = MOSAICO
 ========================= */
 main {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 24px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
 }
 
 /* =========================
-   CARDS / SECTIONS
+   CARDS
 ========================= */
 section {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
+    background: rgba(25, 0, 45, 0.75);
+    border-radius: 14px;
     padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(178, 107, 255, 0.35);
+    box-shadow: 0 0 40px rgba(178, 107, 255, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 0 70px rgba(178, 107, 255, 0.35);
 }
 
+/* =========================
+   TÍTULOS
+========================= */
 section h2 {
     font-size: 22px;
-    margin-bottom: 14px;
-    color: #ffffff;
+    margin-bottom: 18px;
+    color: #e3ccff;
 }
 
+/* =========================
+   TEXTOS
+========================= */
 section p {
     font-size: 15px;
     line-height: 1.7;
-    color: #dfe6e9;
+    opacity: 0.9;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+section p:last-child {
+    margin-bottom: 0;
 }
 
 /* =========================
-   FORM
+   DESTAQUES
+========================= */
+section strong {
+    color: #b26bff;
+}
+
+/* =========================
+   BOTÃO DE AÇÃO
 ========================= */
 form {
-    margin-top: 15px;
-}
-
-form label {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-form input,
-form textarea,
-form select {
     width: 100%;
-    margin-top: 6px;
-    margin-bottom: 18px;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0,0,0,0.35);
-    color: #ecf0f1;
-    font-size: 14px;
+    margin-top: 22px;
 }
 
-form input::placeholder,
-form textarea::placeholder {
-    color: #b2bec3;
-}
-
-form input:focus,
-form textarea:focus,
-form select:focus {
-    outline: none;
-    border-color: #00cec9;
-    box-shadow: 0 0 0 2px rgba(0,206,201,0.2);
-}
-
-/* =========================
-   BOTÃO PRINCIPAL
-========================= */
 button {
     width: 100%;
-    background: linear-gradient(135deg, #00cec9, #0984e3);
-    color: #fff;
-    border: none;
-    padding: 14px;
+    padding: 16px;
+    background: linear-gradient(135deg, #7a1cff, #b26bff);
+    color: #0b0014;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,206,201,0.45);
-}
-
-/* =========================
-   LINKS
-========================= */
-a {
-    color: #00cec9;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* =========================
-   ERROS / ALERTAS
-========================= */
-.error-box {
-    background: rgba(192, 57, 43, 0.2);
-    border-left: 5px solid #e74c3c;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    font-size: 14px;
+    box-shadow: 0 0 35px rgba(178, 107, 255, 0.9);
 }
 
 /* =========================
@@ -169,10 +155,10 @@ a:hover {
 ========================= */
 footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 35px 20px;
     font-size: 13px;
-    color: #bdc3c7;
-    opacity: 0.85;
+    color: #9a7ccf;
+    opacity: 0.9;
 }
 
 /* =========================
@@ -180,14 +166,11 @@ footer {
 ========================= */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
-    main {
-        margin: 30px auto;
-    }
-
-    section {
-        padding: 22px;
+    .usuario-logado {
+        position: static;
+        margin-top: 12px;
     }
 }

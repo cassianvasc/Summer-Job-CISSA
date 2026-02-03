@@ -3,104 +3,158 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Registrar Denúncia – Canal de Denúncias</title>
+    <title>Registro de Incidente – Canal de Denúncias</title>
     <link rel="stylesheet" href="{% static 'app_principal/css/denuncia.css' %}">
 </head>
 <body>
 
 <header>
-    <h1>Registro de Denúncia de Ameaça Digital</h1>
+    <h1>Registro de Incidente de Segurança Cibernética</h1>
     <p>
-        Preencha o formulário abaixo para registrar uma denúncia relacionada
-        a ameaças cibernéticas. As informações serão tratadas com segurança
-        e confidencialidade.
+        Utilize este formulário para registrar incidentes de segurança da informação.
+        Os dados fornecidos apoiarão a análise, resposta e tratamento do incidente.
     </p>
 </header>
 
 <main>
 
-    <!-- INTRO -->
+    <!-- ORIENTAÇÕES -->
     <section>
-        <h2>ℹ️ Orientações</h2>
+        <h2>ℹ️ Orientações Gerais</h2>
         <p>
-            Forneça o máximo de detalhes possível. Informações bem descritas
-            facilitam a análise, correlação e investigação das ameaças.
-        </p>
-        <p>
-            Caso não se sinta confortável em informar dados pessoais,
-            o preenchimento pode ser feito de forma parcial.
+            Preencha os campos com o máximo de informações disponíveis.
+            Caso algum dado não seja conhecido no momento, deixe o campo em branco.
         </p>
     </section>
 
     <!-- FORMULÁRIO -->
     <section>
-        <h2>🚨 Dados da Denúncia</h2>
+        <h2>🚨 Registro do Incidente</h2>
 
         <form method="post">
             {% csrf_token %}
 
-            <!-- TIPO -->
-            <label for="tipo">Tipo de ameaça</label>
-            <select id="tipo" name="tipo" required>
-                <option value="">Selecione o tipo</option>
-                <option value="ameaça">Ameaça direta</option>
-                <option value="assedio">Assédio / Perseguição</option>
-                <option value="golpe">Golpe / Fraude</option>
-                <option value="odio">Discurso de ódio</option>
-                <option value="malware">Malware / Código malicioso</option>
-                <option value="outro">Outro</option>
+            <!-- RESPONSÁVEIS -->
+            <label for="contato_tecnico">Contato técnico responsável</label>
+            <input type="text" id="contato_tecnico" name="contato_tecnico">
+
+            <label for="gestor_responsavel">Gestor responsável</label>
+            <input type="text" id="gestor_responsavel" name="gestor_responsavel">
+
+            <label for="area">Área / Coordenação</label>
+            <input type="text" id="area" name="area">
+
+            <!-- CONTATO -->
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email">
+
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone">
+
+            <!-- DATA -->
+            <label for="data_incidente">Data do incidente</label>
+            <input type="date" id="data_incidente" name="data_incidente">
+
+            <!-- EQUIPE DE SEGURANÇA -->
+            <label for="equipe_seguranca">Possui equipe de segurança dedicada?</label>
+            <select id="equipe_seguranca" name="equipe_seguranca">
+                <option value="">Selecione</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <!-- DESCOBERTA -->
+            <label for="descoberta">Descoberta do incidente</label>
+            <select id="descoberta" name="descoberta">
+                <option value="">Selecione</option>
+                <option value="usuario_interno">Usuário interno</option>
+                <option value="usuario_externo">Usuário externo</option>
+                <option value="monitoramento">Monitoramento</option>
+                <option value="manutencao">Manutenção</option>
+                <option value="outros">Outros</option>
+            </select>
+
+            <!-- CATEGORIA -->
+            <label for="categoria">Categoria do incidente</label>
+            <select id="categoria" name="categoria">
+                <option value="">Selecione</option>
+                <option value="ransomware">Ransomware</option>
+                <option value="dos">DoS</option>
+                <option value="acesso_indevido">Acesso indevido</option>
+                <option value="vazamento_dados">Vazamento de dados</option>
+                <option value="desfiguracao">Desfiguração de sítio</option>
+            </select>
+
+            <!-- IMPACTO -->
+            <label for="hosts_afetados">Quantidade de hosts afetados</label>
+            <input type="number" id="hosts_afetados" name="hosts_afetados" min="0">
+
+            <label for="localidade">Localidade</label>
+            <select id="localidade" name="localidade">
+                <option value="">Selecione</option>
+                <option value="sede">Sede</option>
+                <option value="regional">Regional</option>
+            </select>
+
+            <!-- REDE -->
+            <label for="tecnologia_rede">Tecnologia de redes</label>
+            <select id="tecnologia_rede" name="tecnologia_rede">
+                <option value="">Selecione</option>
+                <option value="sdwan">SD-WAN</option>
+                <option value="mpls">MPLS</option>
+            </select>
+
+            <label for="qtd_links">Quantidade de links</label>
+            <input type="number" id="qtd_links" name="qtd_links" min="0">
+
+            <label for="vpn">VPN ativa</label>
+            <select id="vpn" name="vpn">
+                <option value="">Selecione</option>
+                <option value="admins">Apenas admins</option>
+                <option value="alguns_usuarios">Apenas alguns usuários</option>
+                <option value="todos">Para todos os usuários</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <!-- AMBIENTE -->
+            <label for="ambiente">Identificação do ambiente</label>
+            <select id="ambiente" name="ambiente">
+                <option value="">Selecione</option>
+                <option value="on_premise">On-premise</option>
+                <option value="cloud">Cloud</option>
+                <option value="hibrido">Cloud e on-premise</option>
+            </select>
+
+            <!-- SISTEMA -->
+            <label for="servico_afetado">Serviço afetado</label>
+            <input type="text" id="servico_afetado" name="servico_afetado">
+
+            <label for="sistema_operacional">Sistema operacional</label>
+            <input type="text" id="sistema_operacional" name="sistema_operacional">
+
+            <label for="versao">Versão</label>
+            <input type="text" id="versao" name="versao">
+
+            <label for="ip">Endereço IP</label>
+            <input type="text" id="ip" name="ip">
+
+            <!-- STATUS -->
+            <label for="status_incidente">Situação do incidente</label>
+            <select id="status_incidente" name="status_incidente">
+                <option value="">Selecione</option>
+                <option value="solucionado">Solucionado</option>
+                <option value="precisa_ajuda">Precisa de ajuda</option>
             </select>
 
             <!-- DESCRIÇÃO -->
-            <label for="descricao">Descrição detalhada da ameaça</label>
-            <textarea id="descricao" name="descricao" rows="6" required
-                placeholder="Descreva o ocorrido, contexto, impacto e qualquer informação relevante."></textarea>
-
-            <!-- DATA -->
-            <label for="data_ocorrencia">Data aproximada da ocorrência</label>
-            <input type="date" id="data_ocorrencia" name="data_ocorrencia">
-
-            <!-- ORIGEM -->
-            <label for="origem">Origem da ameaça (plataforma, site, rede social, etc.)</label>
-            <input type="text" id="origem" name="origem"
-                placeholder="Ex: WhatsApp, Instagram, e-mail, site, fórum, etc.">
-
-            <!-- INDICADORES -->
-            <label for="indicadores">Indicadores / Evidências técnicas</label>
-            <textarea id="indicadores" name="indicadores" rows="4"
-                placeholder="Links, usuários, e-mails, domínios, IPs, hashes, mensagens, etc."></textarea>
-
-            <!-- CONTATO -->
-            <label for="contato">Contato (opcional)</label>
-            <input type="email" id="contato" name="contato"
-                placeholder="email@exemplo.com">
-
-            <!-- CONSENTIMENTO -->
-            <label>
-                <input type="checkbox" required>
-                Declaro que as informações fornecidas são verdadeiras,
-                dentro do meu conhecimento.
-            </label>
+            <label for="descricao_incidente">Descrição do incidente</label>
+            <textarea id="descricao_incidente" name="descricao_incidente" rows="6"
+                placeholder="Descreva o incidente, impactos observados e ações realizadas."></textarea>
 
             <br><br>
 
-            <button type="submit">Enviar denúncia</button>
+            <button type="submit">Registrar incidente</button>
         </form>
-    </section>
-
-    <!-- SEGURANÇA -->
-    <section>
-        <h2>🔐 Segurança e Tratamento da Informação</h2>
-        <p>
-            As denúncias registradas podem ser armazenadas de forma segura,
-            com controle de acesso e mecanismos de integridade baseados
-            em blockchain permissionada.
-        </p>
-        <p>
-            Informações relevantes poderão ser utilizadas em processos
-            de Cyber Threat Intelligence e compartilhadas com plataformas
-            especializadas, respeitando princípios de segurança e privacidade.
-        </p>
     </section>
 
 </main>
@@ -109,7 +163,7 @@
     <p>
         © 2026 – Canal de Denúncias de Ameaças Digitais  
         <br>
-        Em caso de risco imediato, procure as autoridades competentes.
+        Em caso de incidente crítico, acione imediatamente os responsáveis.
     </p>
 </footer>
 

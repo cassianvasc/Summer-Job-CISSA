@@ -12,8 +12,13 @@
     <h1>Canal de Denúncias de Ameaças Digitais</h1>
     <p>
         Plataforma segura para registro, análise e tratamento de ameaças
-        cibernéticas, com foco em Cyber Threat Intelligence e integridade dos dados.
+        cibernéticas, com foco em Cyber Threat Intelligence (CTI)
+        e integridade dos dados.
     </p>
+
+    <div class="usuario-logado">
+        Usuário autenticado: <strong>{{ request.user.username }}</strong>
+    </div>
 </header>
 
 <main>
@@ -24,20 +29,16 @@
         <p>
             Este sistema foi desenvolvido para permitir o registro estruturado
             de denúncias relacionadas a ameaças digitais, promovendo segurança,
-            rastreabilidade e apoio à investigação.
-        </p>
-        <p>
-            Usuário autenticado: <strong>{{ request.user.username }}</strong>
+            confiabilidade, rastreabilidade e apoio à investigação.
         </p>
     </section>
 
-    <!-- BOTÃO PRINCIPAL -->
+    <!-- AÇÃO PRINCIPAL -->
     <section>
         <h2>🚨 Registrar Denúncia</h2>
         <p>
-            Caso tenha identificado uma ameaça digital — como assédio,
-            golpes, perseguição online, discurso de ódio ou outras atividades
-            maliciosas — utilize o formulário para registrar a ocorrência.
+            Caso tenha identificado uma ameaça digital, utilize o formulário
+            para registrar a ocorrência de forma estruturada e segura.
         </p>
 
         <form action="/denuncia/" method="get">
@@ -50,12 +51,12 @@
         <h2>⛓️ Blockchain e Integridade</h2>
         <p>
             As informações registradas podem ser associadas a uma infraestrutura
-            de blockchain permissionada, garantindo a integridade, imutabilidade
+            de blockchain permissionada, garantindo integridade, imutabilidade
             e rastreabilidade dos registros ao longo do tempo.
         </p>
         <p>
             Isso assegura que os dados não sejam alterados após o registro,
-            fortalecendo a confiabilidade das informações.
+            fortalecendo a confiabilidade das informações compartilhadas.
         </p>
     </section>
 
@@ -63,23 +64,23 @@
     <section>
         <h2>🌐 Cyber Threat Intelligence (CTI)</h2>
         <p>
-            O sistema é projetado para apoiar processos de Cyber Threat Intelligence,
+            A plataforma apoia processos de Cyber Threat Intelligence,
             permitindo a correlação, análise e compartilhamento de indicadores
-            de ameaça.
+            de ameaças cibernéticas.
         </p>
         <p>
-            Denúncias relevantes podem ser integradas a plataformas CTI, como o MISP,
-            contribuindo para a prevenção e resposta a incidentes.
+            Denúncias relevantes podem ser integradas a plataformas CTI,
+            como o MISP, contribuindo para a prevenção e resposta a incidentes.
         </p>
     </section>
 
-    <!-- CYBERSEGURANÇA -->
+    <!-- CIBERSEGURANÇA -->
     <section>
         <h2>🛡️ Cibersegurança</h2>
         <p>
             A segurança da informação é um dos pilares desta aplicação.
             São adotadas boas práticas de autenticação, controle de acesso
-            e proteção contra ataques comuns.
+            e proteção contra ataques cibernéticos comuns.
         </p>
         <p>
             O objetivo é oferecer um ambiente confiável tanto para o denunciante
@@ -87,11 +88,25 @@
         </p>
     </section>
 
+    <!-- PROJETO -->
+    <section>
+        <h2>📘 Sobre o Projeto</h2>
+        <p>
+            Projeto realizado no <strong>Summer Job CISSA – Cesar School</strong>,
+            desenvolvido pela equipe <strong>CyberTrust</strong>.
+        </p>
+        <p>
+            A iniciativa tem como objetivo produzir inteligência de ameaças
+            e aumentar a confiabilidade na comunicação entre entidades
+            em plataformas de compartilhamento de Cyber Threat Intelligence (CTI).
+        </p>
+    </section>
+
 </main>
 
 <footer>
     <p>
-        © 2026 – Canal de Denúncias de Ameaças Digitais  
+        © 2026 – Plataforma de Denúncias de Ameaças Digitais – CyberTrust  
         <br>
         Em caso de risco imediato, procure as autoridades competentes.
     </p>
