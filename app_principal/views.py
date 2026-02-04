@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages   # 👈 ADICIONADO
+from django.contrib import messages
 from .models import Incidente
+from .API import registrar_incidente
 
 
 @login_required
@@ -11,8 +12,10 @@ def home(request):
 
 @login_required
 def denuncia(request):
+
     if request.method == "POST":
-        Incidente.objects.create(
+
+        incidente = Incidente.objects.create(
             usuario=request.user,
 
             contato_tecnico=request.POST.get("contato_tecnico"),
@@ -46,8 +49,41 @@ def denuncia(request):
             descricao_incidente=request.POST.get("descricao_incidente"),
         )
 
-        messages.success(request, "Incidente registrado com sucesso.")
+        dados_blockchain = {
+            "usuario": request.user.username,
 
+            "contato_tecnico": incidente.contato_tecnico,
+            "gestor_responsavel": incidente.gestor_responsavel,
+            "area": incidente.area,
+
+            "email": incidente.email,
+            "telefone": incidente.telefone,
+            "data_incidente": str(incidente.data_incidente),
+
+            "equipe_seguranca": incidente.equipe_seguranca,
+            "descoberta": incidente.descoberta,
+            "categoria": incidente.categoria,
+
+            "hosts_afetados": incidente.hosts_afetados,
+            "localidade": incidente.localidade,
+
+            "tecnologia_rede": incidente.tecnologia_rede,
+            "qtd_links": incidente.qtd_links,
+            "vpn": incidente.vpn,
+            "ambiente": incidente.ambiente,
+
+            "servico_afetado": incidente.servico_afetado,
+            "sistema_operacional": incidente.sistema_operacional,
+            "versao": incidente.versao,
+            "ip": incidente.ip,
+
+            "status_incidente": incidente.status_incidente,
+            "descricao_incidente": incidente.descricao_incidente,
+        }
+
+        registrar_incidente(dados_blockchain)
+
+        messages.success(request, "Incidente registrado com sucesso.")
         return redirect("home")
 
     return render(request, 'app_principal/denuncia.html')
