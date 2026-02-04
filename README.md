@@ -77,8 +77,7 @@ source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 
 ### 3. Instale as dependências:
-pip install django
-pip install dotenv
+pip install requirements.txt
 
 ### 4. Execute o servidor:
 python manage.py runserver
