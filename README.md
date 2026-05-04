@@ -10,7 +10,7 @@ A aplicação permite que usuários realizem denúncias de forma estruturada, se
 
 Criar um sistema capaz de:
 
-- Receber denúncias de ameaças digitais (malware, ransomware, phishing, etc.)
+- Receber denúncias de ameaças digitais (malware, ransomware, etc.)
 - Armazenar essas informações de forma organizada
 - Garantir **integridade e rastreabilidade** dos dados por meio de Blockchain
 - Compartilhar indicadores relevantes de ameaça com plataformas de **Cyber Threat Intelligence (CTI)**, como o MISP
